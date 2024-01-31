@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+   
+</head>
+
+<body>
+    <div id="maindiv">
+        <div id="submaindiv">
+            <div id="leftdiv">
+                <div>
+                    <label for="">Email Text Field Validation</label>
+                    <br>
+                    <input type="text" name="" id="emailid"  class="inputwidth" placeholder="Enter email address">
+                   <br>   <span id="emailvalidation" ></span>
+                </div>
+                
+                <div>
+                    <label for="">Alpha Text Field Validation</label><br>
+                    <input type="text" name="" id="alphafield" class="inputwidth" placeholder="Enter alpha">
+                    <br>
+                    <span id="alphavalidation"></span>
+                </div>
+             
+                <div>
+                    <label for="">Radio Field Validation(Gender)</label><br>
+                    <input type="radio" name="gender" id=""><label for="male">Male</label>
+                    <br><input type="radio" name="gender" id=""><label for="female">Female</label>
+                </div>
+              <br>
+                <div>
+                    <label for="">URL Field Validation</label><br>
+                    <input type="url" name="" id="urlfield" placeholder="Enter url" class="inputwidth">
+                    <br>
+                    <span id="urlvalidation"></span>
+                </div>
+        
+                <div>
+                    <label for="">Textarea Field Validation</label><br>
+                    <textarea name="" id="tarea" cols="10" rows="2" placeholder="Textarea"
+                        class="inputwidth"></textarea>
+                    <br>
+                    <span id="textareavalidation"></span>
+                </div>
+     
+                <div> <label for="">Image Field Validation</label><br>
+                    <input type="file" name="" id="imgfile" class="inputwidth">
+                    <br>
+                    <span id="imgvalidation"></span>
+                </div>
+            </div>
+            <div id="rightdiv">
+                <div>
+                    <label for="">Password Text Field Validation</label><br>
+
+                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass">
+                    <br> <span id="passvalidation"></span>
+                </div>
+
+                <div>
+                    <label for="">Phone Number Field Validation</label><br>
+                    <select name="" id="droplist">
+                        <option value="">+91</option>
+                        <option value="">+92</option>
+                        <option value="">+93</option>
+                        <option value="">+94</option>
+                        <option value="">+95</option>
+                        <option value="">+96</option>
+                    </select>
+                    <input type="tel" name="" id="pnumber" placeholder="Enter Phone Number" class="inputwidth">
+                    <br>
+                    <span id="phonevalidation"></span>
+                </div>
+     
+                <div>
+                    <label for="">Date Picker(Birth Date)</label>
+                    <br> <input type="date" name="" id="date" class="inputwidth" class="inpwidth">
+                    <br>
+                    <span id="datevalidation"></span>
+                </div><br>
+                <div><label for="">Currency Field Validation</label>
+                    <br> <input type="text" name="" class="inpwidth" placeholder="Enter currency" class="inputwidth">
+                    <br>
+                    <span id="currencyvalidation"></span>
+                </div> 
+                <div>
+                    <label for="">Checkbox Field Validation</label><br>
+                    <input type="checkbox" name="domain" id=""> <span>MEAN</span>
+                    <br><input type="checkbox" name="domain" id=""> <span>Blockchain</span>
+                    <br> <input type="checkbox" name="domain" id=""><span> React</span>
+                    <br> <input type="checkbox" name="domain" id=""><span> BA</span>
+                </div><br>
+          
+                <div><label for="">Color Field Validation</label><br>
+                    <input type="color" name="" class="inpwidth" class="inputwidth"><br>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <input type="button" value="SUBMIT" id="sbbutton" onclick="isDataEntered()">
+    </div>
+<script src="main.js"></script>
+</body>
+
+</html>
