@@ -171,6 +171,25 @@ function isValidDate(vdate) {
      return dateRegex.test(vdate);
   }
 
+  var curr = document.getElementById("currency");
+var currmsg = document.getElementById('currencyvalidation');
+
+  function validateCurrency(){
+if(iscurrency(curr.value.trim())){
+    currmsg.innerHTML = "valid";
+    currmsg.style.color="green";
+}
+else{
+    currmsg.innerHTML = "Invalid";
+    currmsg.style.color="red";
+
+}
+  }
+
+  function iscurrency(curr){
+    const currRegex=/^[0-9]$/;
+    return currRegex.test(curr);
+  }
 
 function isDataEntered() {
     validateEmail();
@@ -181,6 +200,7 @@ function isDataEntered() {
     validatePassword();
     validatePhoneNumber();
     validateDate();
+    validateCurrency();
 }
 
 
