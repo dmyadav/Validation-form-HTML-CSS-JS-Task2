@@ -149,7 +149,7 @@ function validatePassword() {
         passvalidmsg.style.color="green";
     }
     else {
-        passvalidmsg.innerHTML = "Invalid";
+        passvalidmsg.innerHTML = "Invalid password";
         passvalidmsg.style.color="red";
     }
 }
@@ -161,16 +161,16 @@ function isValidPassword(pass) {
   }
 
   
-//   function dispPass() {
-//     var passwordInput = document.getElementById("password");
-//     var toggleButton = document.getElementById("toggleBtn");
+  function dispPass() {
+    var passwordInput = document.getElementById("pass");
+    var toggleButton = document.getElementById("showbtn");
   
-//     if (passwordInput.type === "password") {
-//       passwordInput.type = "text";
-//     } else {
-//       passwordInput.type = "password";
-//     }
-//   }
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+    } else {
+      passwordInput.type = "password";
+    }
+  }
         
 var phone = document.getElementById("pnumber");
 var phonevalidmsg = document.getElementById('phonevalidation');
