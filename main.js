@@ -10,7 +10,7 @@ function validateEmail() {
     }
     
      else if(!mailid.value.trim()){
-         emailvalidmsg.innerHTML="please enter email";
+         emailvalidmsg.innerHTML="Please enter email";
          emailvalidmsg.style.color="red";
       }
 
@@ -38,12 +38,12 @@ function validateAlpha() {
         alphavalidmsg.style.color="green";
     }
     else if(!alphatext.value.trim()) {
-        alphavalidmsg.innerHTML = "please enter alphatext";
+        alphavalidmsg.innerHTML = "Please enter alphatext";
         alphavalidmsg.style.color="red";
         
     }
     else {
-        alphavalidmsg.innerHTML = "please enter valid alphatext";
+        alphavalidmsg.innerHTML = "Please enter valid alphatext";
         alphavalidmsg.style.color="red";
         
     }
@@ -55,6 +55,21 @@ function isValidAlpha(alphatext) {
   }
 
   
+  function validateGender() {
+    var maleRadio = document.getElementById('male');
+    var femaleRadio = document.getElementById('female');
+    var genderSpan = document.getElementById('gendervalidation');
+  
+    if (!maleRadio.checked && !femaleRadio.checked) {
+        genderSpan.innerHTML = "<p>Please select a gender.</p>";
+        genderSpan.style.color="red";
+
+    } else {
+        genderSpan.innerHTML = '';
+    }
+  }
+
+
 var url = document.getElementById("urlfield");
 var urlvalidmsg = document.getElementById('urlvalidation');
 
@@ -72,24 +87,27 @@ function validateUrl() {
 }
 
 function isValidUrl(url) {
-    const urlRegex =  /^(ftp|http|https):\/\/[^ "]+$/;
+    const urlRegex =  /^(ftp|http|https):\/\/[^ "]+\.+$/;
     return urlRegex.test(url);
   }
 
 
-  var txtarea=document.getElementById('tarea');
-  var txtvalidmsg=document.getElementById('textareavalidation');
+
+  function isEmptyTextArea() {
+    var descriptionInput = document.getElementById('tarea');
+    var description = descriptionInput.value;
+    var textareaSpan = document.getElementById('textareavalidation');
   
-  function isEmptyTextArea(){
+    if (!description) {
+        textareaSpan.innerHTML = "<p>Please enter something here</p>";
+        textareaSpan.style.color="red";
 
-     if(!txtarea.value.trim()){
-        txtvalidmsg.innerHTML="please enter something";
-        txtvalidmsg.style.color="red";
- }
-    
-
+    } else if (description.length < 10 || description.length > 100) {
+        textareaSpan.innerHTML = "<p>Description should be between 10 to 100 characters</p>";
+    } else {
+        textareaSpan.innerHTML = '';
+    }
   }
-
     
 var image = document.getElementById("imgfile");
 var imagevalidmsg = document.getElementById('imgvalidation');
@@ -115,7 +133,7 @@ function validateImage() {
 }
 
 function isValidImage(image) {
-    const imageRegex =  /\.(jpeg|jpg|gif|png|bmp|webp)$/i;
+    const imageRegex =  /\.(jpg|png)$/i;
     return imageRegex.test(image);
   }
 
@@ -153,7 +171,7 @@ function validatePhoneNumber() {
         phonevalidmsg.style.color="green";
     }
     else if(!phone.value.trim()){
-        phonevalidmsg.innerHTML = "please enter your phone number";
+        phonevalidmsg.innerHTML = "Please enter your phone number";
         phonevalidmsg.style.color="red";
     }
     else {
@@ -174,21 +192,46 @@ var datevalidmsg = document.getElementById('datevalidation');
 
 
 function validateDate() {
+    var dobInput = document.getElementById('date');
+    var dobSpan = document.getElementById('datevalidation');
+    var selectedDate = dobInput.value;
+    var minDate = new Date(dobInput.min);
+    var maxDate = new Date(dobInput.max);
+    var selectedDateObj = new Date(selectedDate);
   
-    if (isValidDate(vdate.value.trim())) {
-        datevalidmsg.innerHTML = "valid";
-        datevalidmsg.style.color="green";
+    if (selectedDate === "") {
+        dobSpan.innerHTML = "<p>Please select a birth date.</p>";
+        dobSpan.style.color="red";
+    } else if (selectedDateObj < minDate || selectedDateObj > maxDate) {
+        dobSpan.innerHTML = "<p>Please select a birth date within the specified range.</p>";
+        dobSpan.style.color="red";
+    } else {
+        dobSpan.innerHTML = '';
     }
-    else {
-        datevalidmsg.innerHTML = "Invalid";
-        datevalidmsg.style.color="red";
-    }
-}
-
-function isValidDate(vdate) {
-    const dateRegex =  /^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d{2}$/;
-     return dateRegex.test(vdate);
   }
+
+  function validateCheckbox() {
+     var checkboxes = document.querySelectorAll('input[name="domain"]');
+     var checkboxSpan = document.getElementById('checkboxvalidation');
+      
+        var checkedCount = 0;
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+             checkedCount++;
+         }
+     }
+      
+     if (checkedCount === 0) {
+         checkboxSpan.innerHTML = "<p>Please select at least one option</p>";
+         checkboxSpan.style.color="red";
+     }else if(checkedCount>2){
+         checkboxSpan.innerHTML = "<p>select only two checkboxes</p>";
+         checkboxSpan.style.color="red";
+        } else {
+            checkboxSpan.innerHTML = '';
+     }
+     }
+  
 
   var curr = document.getElementById("currency");
 var currmsg = document.getElementById('currencyvalidation');
@@ -219,7 +262,9 @@ function isDataEntered() {
     validatePassword();
     validatePhoneNumber();
     validateDate();
+    validateCheckbox()
     validateCurrency();
+    validateGender();
 }
 
 
@@ -275,4 +320,14 @@ curr.addEventListener('input',function(){
    
 });
 
+
+// function dispPass(){
+//     var res=pass.value;
+//     pass=res;
+
+//     var passwordField = document.getElementById("pass");
+//     // alert("Password: " + passwordField.value);
+
+
+// }
 
