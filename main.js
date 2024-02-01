@@ -37,6 +37,11 @@ function validateAlpha() {
         alphavalidmsg.innerHTML = "valid alphatext";
         alphavalidmsg.style.color="green";
     }
+    else if(!alphatext.value.trim()) {
+        alphavalidmsg.innerHTML = "please enter alphatext";
+        alphavalidmsg.style.color="red";
+        
+    }
     else {
         alphavalidmsg.innerHTML = "please enter valid alphatext";
         alphavalidmsg.style.color="red";
@@ -136,8 +141,6 @@ function isValidPassword(pass) {
    //at least one digit,lowercase,uppercase,special chars,at least 8
     return passRegex.test(pass);
   }
-
-
         
 var phone = document.getElementById("pnumber");
 var phonevalidmsg = document.getElementById('phonevalidation');
@@ -148,6 +151,10 @@ function validatePhoneNumber() {
     if (isValidPnumber(phone.value.trim())) {
         phonevalidmsg.innerHTML = "valid";
         phonevalidmsg.style.color="green";
+    }
+    else if(!phone.value.trim()){
+        phonevalidmsg.innerHTML = "please enter your phone number";
+        phonevalidmsg.style.color="red";
     }
     else {
         phonevalidmsg.innerHTML = "Invalid";
@@ -214,5 +221,58 @@ function isDataEntered() {
     validateDate();
     validateCurrency();
 }
+
+
+mailid.addEventListener('input',function(){
+     validateEmail();  
+    
+});
+
+alphatext.addEventListener('input',function(){
+    validateAlpha();  
+   
+});
+
+url.addEventListener('input',function(){
+    validateUrl();
+   
+   
+});
+
+txtarea.addEventListener('input',function(){
+    isEmptyTextArea();
+   
+   
+});
+
+image.addEventListener('input',function(){
+    validateImage();
+  
+   
+});
+
+pass.addEventListener('input',function(){
+    validatePassword();
+    
+   
+});
+
+vdate.addEventListener('input',function(){
+    validateDate();
+   
+   
+});
+
+
+phone.addEventListener('input',function(){
+    validatePhoneNumber();  
+   
+});
+
+
+curr.addEventListener('input',function(){
+    validateCurrency();
+   
+});
 
 

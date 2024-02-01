@@ -42,8 +42,7 @@
         
                 <div>
                     <label for="">Textarea Field Validation</label><br>
-                    <textarea name="" id="tarea" cols="10" rows="2" placeholder="Textarea"
-                        class="inputwidth"></textarea>
+                    <textarea name="" id="tarea" cols="10" rows="2" placeholder="Textarea" class="inputwidth"></textarea>
                     <br>
                     <span id="textareavalidation"></span>
                 </div>
@@ -58,8 +57,9 @@
                 <div>
                     <label for="">Password Text Field Validation</label><br>
 
-                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass">
+                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass" maxlength="16">
                     <br> <span id="passvalidation"></span>
+                  
                 </div>
 
                 <div>
@@ -72,7 +72,8 @@
                         <option value="">+95</option>
                         <option value="">+96</option>
                     </select>
-                    <input type="tel" name="" id="pnumber" placeholder="Enter Phone Number" class="inputwidth">
+                    <input type="number" name="" id="pnumber" placeholder="Enter Phone Number" class="inputwidth">
+            
                     <br>
                     <span id="phonevalidation"></span>
                 </div>
@@ -84,7 +85,8 @@
                     <span id="datevalidation"></span>
                 </div><br>
                 <div><label for="">Currency Field Validation</label>
-                    <br> <input type="text" name="" class="inpwidth" placeholder="Enter currency" class="inputwidth" id="currency">
+                    <br><input type="number" name="" class="inpwidth" placeholder="Enter currency" class="inputwidth" id="currency">
+                    
                     <br>
                     <span id="currencyvalidation"></span>
                 </div> 
