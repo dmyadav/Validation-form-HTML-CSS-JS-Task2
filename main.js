@@ -1,16 +1,24 @@
-var mailid = document.getElementById("emailid");
+const mailid = document.getElementById("emailid");
 var emailvalidmsg = document.getElementById("emailvalidation");
 
 
 function validateEmail() {
+    
     if (isValidEmail(mailid.value.trim())) {
         emailvalidmsg.innerHTML = "valid"
         emailvalidmsg.style.color="green";
     }
+    
+     else if(!mailid.value.trim()){
+         emailvalidmsg.innerHTML="please enter email";
+         emailvalidmsg.style.color="red";
+      }
+
     else {
-        emailvalidmsg.innerHTML = "Invalid";
+        emailvalidmsg.innerHTML = "Invalid emaillid";
         emailvalidmsg.style.color="red";
     }
+
 }
 
 function isValidEmail(mailid) {
@@ -26,11 +34,11 @@ var alphavalidmsg = document.getElementById('alphavalidation');
 function validateAlpha() {
   
     if (isValidAlpha(alphatext.value.trim())) {
-        alphavalidmsg.innerHTML = "valid";
+        alphavalidmsg.innerHTML = "valid alphatext";
         alphavalidmsg.style.color="green";
     }
     else {
-        alphavalidmsg.innerHTML = "Invalid";
+        alphavalidmsg.innerHTML = "please enter valid alphatext";
         alphavalidmsg.style.color="red";
         
     }
@@ -49,11 +57,11 @@ var urlvalidmsg = document.getElementById('urlvalidation');
 function validateUrl() {
   
     if (isValidUrl(url.value.trim())) {
-        urlvalidmsg.innerHTML = "valid";
+        urlvalidmsg.innerHTML = "valid url";
         urlvalidmsg.style.color="green";
     }
     else {
-        urlvalidmsg.innerHTML = "Invalid";
+        urlvalidmsg.innerHTML = "Invalid url";
         urlvalidmsg.style.color="red";
     }
 }
@@ -68,15 +76,12 @@ function isValidUrl(url) {
   var txtvalidmsg=document.getElementById('textareavalidation');
   
   function isEmptyTextArea(){
-    console.log("calling")
-     if(!txtarea === ''){
-        txtvalidmsg.innerHTML="data inserted";
-        txtvalidmsg.style.color="green";
-     }
-     else{
+
+     if(!txtarea.value.trim()){
         txtvalidmsg.innerHTML="please enter something";
         txtvalidmsg.style.color="red";
-     }
+ }
+    
 
   }
 
@@ -88,9 +93,16 @@ var imagevalidmsg = document.getElementById('imgvalidation');
 function validateImage() {
   
     if (isValidImage(image.value.trim())) {
-        imagevalidmsg.innerHTML = "valid";
+        imagevalidmsg.innerHTML = "image uploaded successfully";
         imagevalidmsg.style.color="green";
     }
+     
+       
+    else if(!image.value.trim()){
+        imagevalidmsg.innerHTML = "please upload image";
+        imagevalidmsg.style.color="red";
+    }
+
     else {
         imagevalidmsg.innerHTML = "Invalid";
         imagevalidmsg.style.color="red";
