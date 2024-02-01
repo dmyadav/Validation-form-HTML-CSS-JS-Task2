@@ -159,6 +159,18 @@ function isValidPassword(pass) {
    //at least one digit,lowercase,uppercase,special chars,at least 8
     return passRegex.test(pass);
   }
+
+  
+//   function dispPass() {
+//     var passwordInput = document.getElementById("password");
+//     var toggleButton = document.getElementById("toggleBtn");
+  
+//     if (passwordInput.type === "password") {
+//       passwordInput.type = "text";
+//     } else {
+//       passwordInput.type = "password";
+//     }
+//   }
         
 var phone = document.getElementById("pnumber");
 var phonevalidmsg = document.getElementById('phonevalidation');

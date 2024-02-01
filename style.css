@@ -1,6 +1,6 @@
 #submaindiv{
     background-color: rgb(211, 222, 229);
-    height: 600px;
+    height: 670px;
     width: 1255px;
     display: flex;
    
@@ -8,7 +8,7 @@
 #maindiv{
    
     background-color: rgb(211,222,229);
-    height: 650px;
+    height: 750px;
 }
 #leftdiv{
 margin: 1%;
