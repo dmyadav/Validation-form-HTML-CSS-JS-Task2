@@ -58,7 +58,7 @@
             <div id="rightdiv">
                 <div>
                     <label for="">Password Text Field Validation</label><br>
-                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass" maxlength="16">
+                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass" maxlength="16" >
                     <br> <span id="passvalidation"></span>
                     <button  >
                         <img id="showbtn" src="./images/icons8-eye-32.png" alt="" onclick="dispPass()" style="height: 20px; width: 20px;">
@@ -85,7 +85,7 @@
      
                 <div>
                     <label for="">Date Picker(Birth Date)</label>
-                    <br> <input type="date" name="" id="date" class="inputwidth" class="inpwidth" max="01-31-2024" min="01-31-1924">
+                    <br> <input type="date" name="" id="date" class="inputwidth" class="inpwidth" max="03-02-2024" min="01-31-1924">
                     <br>
                     <span id="datevalidation"></span>
                 </div><br>
@@ -101,7 +101,8 @@
                     <br><input type="checkbox" name="domain" id=""> <span>Blockchain</span>
                     <br> <input type="checkbox" name="domain" id=""><span> React</span>
                     <br> <input type="checkbox" name="domain" id=""><span> BA</span>
-                <span id="checkboxvalidation"></span>
+                    <br>
+                <span id="checkboxvalidation" ><b>Note:Please select any one or two checkboxes</b></span>
                 </div><br>
           
                 <div><label for="">Color Field Validation</label><br>
@@ -110,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <input type="button" value="SUBMIT" id="sbbutton" onclick="isDataEntered()">
+        <input type="button" value="SUBMIT" id="sbbutton" onclick="isDataEntered()" >
     </div>
 <script src="main.js"></script>
 </body>

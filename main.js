@@ -2,11 +2,15 @@ const mailid = document.getElementById("emailid");
 var emailvalidmsg = document.getElementById("emailvalidation");
 
 
+
 function validateEmail() {
     
     if (isValidEmail(mailid.value.trim())) {
         emailvalidmsg.innerHTML = "valid"
         emailvalidmsg.style.color="green";
+        
+     
+
     }
     
      else if(!mailid.value.trim()){
@@ -22,7 +26,7 @@ function validateEmail() {
 }
 
 function isValidEmail(mailid) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =/^[a-zA-Z][a-zA-Z0-9._%+-]*@[a-zA-Z]+\.[a-zA-Z]{2,}(?:\.(?:com|in))?(?![a-zA-Z0-9._%+-])?$/;
     return emailRegex.test(mailid);
 }
 
@@ -81,13 +85,13 @@ function validateUrl() {
         urlvalidmsg.style.color="green";
     }
     else {
-        urlvalidmsg.innerHTML = "Invalid url";
+        urlvalidmsg.innerHTML = "Please enter valid url";
         urlvalidmsg.style.color="red";
     }
 }
 
 function isValidUrl(url) {
-    const urlRegex =  /^(ftp|http|https):\/\/[^ "]+\.+$/;
+    const urlRegex =  /^(ftp|http|https):\/\/[^ "]+\.(com|in)$/;
     return urlRegex.test(url);
   }
 
@@ -133,12 +137,12 @@ function validateImage() {
 }
 
 function isValidImage(image) {
-    const imageRegex =  /\.(jpg|png)$/i;
+    const imageRegex =  /\.(jpg|png|jpeg)$/i;
     return imageRegex.test(image);
   }
 
       
-var pass = document.getElementById("pass");
+const pass = document.getElementById("pass");
 var passvalidmsg = document.getElementById('passvalidation');
 
 
@@ -148,10 +152,12 @@ function validatePassword() {
         passvalidmsg.innerHTML = "valid";
         passvalidmsg.style.color="green";
     }
+    
     else {
         passvalidmsg.innerHTML = "Invalid password";
         passvalidmsg.style.color="red";
     }
+
 }
 
 function isValidPassword(pass) {
@@ -172,30 +178,33 @@ function isValidPassword(pass) {
     }
   }
         
-var phone = document.getElementById("pnumber");
+const phone = document.getElementById("pnumber");
 var phonevalidmsg = document.getElementById('phonevalidation');
 
 
 function validatePhoneNumber() {
-  
-    if (isValidPnumber(phone.value.trim())) {
-        phonevalidmsg.innerHTML = "valid";
-        phonevalidmsg.style.color="green";
-    }
-    else if(!phone.value.trim()){
-        phonevalidmsg.innerHTML = "Please enter your phone number";
-        phonevalidmsg.style.color="red";
-    }
-    else {
-        phonevalidmsg.innerHTML = "Invalid";
-        phonevalidmsg.style.color="red";
-    }
-}
 
-function isValidPnumber(phone) {
-    const phoneRegex =  /^\d{10}$/;
-     return phoneRegex.test(phone);
-  }
+        var phoneInput = document.getElementById('pnumber');
+        var phone = phoneInput.value;
+        var phonevalidmsg = document.getElementById('phonevalidation');
+      
+        if (!phone) {
+            phonevalidmsg.innerHTML = "<p>Please enter your phone number</p>";
+          phonevalidmsg.style.color="red";
+        } else if (phone.length > 10) { 
+            
+            phonevalidmsg.innerHTML = "<p>Please enter only 10 digits</p>";
+          phonevalidmsg.style.color="red";
+            phonevalidmsg = phone.slice(0, 10); // Truncate phone number to 10 digits
+          phoneInput.value = phone; // Update input value
+        } else if (phone.length < 10 || phone.charAt(0) < '6') {
+            phonevalidmsg.innerHTML = "<p>Phone number should  satrt from 6 and ahead</p>";
+          phonevalidmsg.style.color="red";
+        } else {
+            phonevalidmsg.innerHTML = '';
+        }
+      }
+      
 
 
          
@@ -245,26 +254,46 @@ function validateDate() {
      }
   
 
-  var curr = document.getElementById("currency");
-var currmsg = document.getElementById('currencyvalidation');
 
-  function validateCurrency(){
-if(iscurrency(curr.value.trim())){
-    currmsg.innerHTML = "valid";
-    currmsg.style.color="green";
-}
-else{
-    currmsg.innerHTML = "Invalid";
-    currmsg.style.color="red";
+//   function validateCurrency(){
+// if(iscurrency(curr.value.trim())){
+//     currmsg.innerHTML = "valid";
+//     currmsg.style.color="green";
+// }
+// else{
+//     currmsg.innerHTML = "Invalid";
+//     currmsg.style.color="red";
 
-}
-  }
+// }
+//   }
 
-  function iscurrency(curr){
-    const currRegex=/^[0-9]$/;
-    return currRegex.test(curr);
-  }
+//   function iscurrency(curr){
+//     const currRegex=/^[0-9]$/;
+//     return currRegex.test(curr);
+//   }
 
+function validateCurrency() {
+    var curr = document.getElementById("currency");
+    var currmsg = document.getElementById('currencyvalidation');
+    
+      
+        var currency = curr.value;
+        var currencyRegex = /^[0-9]+$/; 
+        var maxCurrency = 1000000000000; 
+      
+        if (!currency) {
+            currmsg.innerHTML = "<p>Currency is required.</p>";
+            currmsg.style.color="red";
+        } else if (!currencyRegex.test(currency)) {
+            currmsg.innerHTML = "<p>Currency should consist of only numbers.</p>";
+            currmsg.style.color="red";
+        } else if (parseInt(currency) > maxCurrency) {
+            currmsg.innerHTML = "<p>Currency should not exceed limit of 1 trillion</p>";
+            currmsg.style.color="red";
+        } else {
+            currmsg.innerHTML = '';
+        }
+      }
 function isDataEntered() {
     validateEmail();
     validateAlpha();
@@ -305,14 +334,15 @@ txtarea.addEventListener('input',function(){
 image.addEventListener('input',function(){
     validateImage();
   
-   
-});
+   });
+
 
 pass.addEventListener('input',function(){
     validatePassword();
     
    
 });
+
 
 vdate.addEventListener('input',function(){
     validateDate();
@@ -326,20 +356,8 @@ phone.addEventListener('input',function(){
    
 });
 
-
 curr.addEventListener('input',function(){
     validateCurrency();
    
 });
-
-
-// function dispPass(){
-//     var res=pass.value;
-//     pass=res;
-
-//     var passwordField = document.getElementById("pass");
-//     // alert("Password: " + passwordField.value);
-
-
-// }
 
