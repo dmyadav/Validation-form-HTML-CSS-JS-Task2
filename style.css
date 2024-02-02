@@ -1,20 +1,21 @@
 #submaindiv{
     background-color: rgb(211, 222, 229);
-    height: 670px;
-    width: 1255px;
+    height: 760px;
+    width: 1248px;
     display: flex;
    
+
 }
 #maindiv{
    
     background-color: rgb(211,222,229);
-    height: 750px;
+    height: 820px;
+
 }
 #leftdiv{
 margin: 1%;
 margin-left: 40px;
-
-height: 570px;
+height: 740px;
 
 }
 
@@ -22,7 +23,9 @@ height: 570px;
     margin: 1%;
     margin-left: 40px;
 
-    height: 570px;
+    height: 740px;
+
+
 }
 #sbbutton{
     margin-left: 515px;

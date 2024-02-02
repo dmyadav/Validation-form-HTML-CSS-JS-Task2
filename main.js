@@ -9,8 +9,7 @@ function validateEmail() {
         emailvalidmsg.innerHTML = "valid"
         emailvalidmsg.style.color="green";
         mailid.style.border="3px solid green"
-        
-        
+        return true;   
      
 
     }
@@ -44,7 +43,8 @@ function validateAlpha() {
     if (isValidAlpha(alphatext.value.trim())) {
         alphavalidmsg.innerHTML = "valid alphatext";
         alphavalidmsg.style.color="green";
-        alphatext.style.border="3px solid green"
+        alphatext.style.border="3px solid green";
+        return true;   
     }
     else if(!alphatext.value.trim()) {
         alphavalidmsg.innerHTML = "Please enter alphatext";
@@ -78,6 +78,7 @@ function isValidAlpha(alphatext) {
 
     } else {
         genderSpan.innerHTML = '';
+        return true;   
     }
   }
 
@@ -91,7 +92,8 @@ function validateUrl() {
     if (isValidUrl(url.value.trim())) {
         urlvalidmsg.innerHTML = "valid url";
         urlvalidmsg.style.color="green";
-        url.style.border="3px solid green"
+        url.style.border="3px solid green";
+        return true;   
     }
     else {
         urlvalidmsg.innerHTML = "Please enter valid url";
@@ -115,13 +117,14 @@ function isValidUrl(url) {
     if (!description) {
         textareaSpan.innerHTML = "<p>Please enter something here</p>";
         textareaSpan.style.color="red";
-        descriptionInput.style.border="3px solid #EC2D01"
+        descriptionInput.style.border="3px solid #EC2D01";
 
     } else if (description.length < 10 || description.length > 100) {
         textareaSpan.innerHTML = "<p>Description should be between 10 to 100 characters</p>";
-        descriptionInput.style.border="3px solid #EC2D01"
+        descriptionInput.style.border="3px solid #EC2D01";
     } else {
         textareaSpan.innerHTML = '';
+        return true;   
     }
   }
     
@@ -134,14 +137,16 @@ function validateImage() {
     if (isValidImage(image.value.trim())) {
         imagevalidmsg.innerHTML = "image uploaded successfully";
         imagevalidmsg.style.color="green";
-        image.style.border="3px solid green"
+        image.style.border="3px solid green";
+        return true;   
     }
      
        
     else if(!image.value.trim()){
         imagevalidmsg.innerHTML = "please upload image";
         imagevalidmsg.style.color="red";
-      image.style.border="3px solid #EC2D01"
+      image.style.border="3px solid #EC2D01";
+
     }
 
     else {
@@ -157,30 +162,31 @@ function isValidImage(image) {
   }
 
       
-const pass = document.getElementById("pass");
+const passwd = document.getElementById("pass");
 var passvalidmsg = document.getElementById('passvalidation');
 
 
 function validatePassword() {
   
-    if (isValidPassword(pass.value.trim())) {
+    if (isValidPassword(passwd.value.trim())) {
         passvalidmsg.innerHTML = "valid";
         passvalidmsg.style.color="green";
-        pass.style.border="3px solid green";
+        passwd.style.border="3px solid green";
+        return true;   
     }
     
     else {
         passvalidmsg.innerHTML = "Invalid password";
         passvalidmsg.style.color="red";
-        pass.style.border="3px solid #EC2D01";
+        passwd.style.border="3px solid #EC2D01";
     }
 
 }
 
-function isValidPassword(pass) {
+function isValidPassword(passwd) {
     const passRegex =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>])(?=.*[a-zA-Z]).{8,}$/;
    //at least one digit,lowercase,uppercase,special chars,at least 8
-    return passRegex.test(pass);
+    return passRegex.test(passwd);
   }
 
   
@@ -222,6 +228,7 @@ function validatePhoneNumber() {
           phoneInput.style.border="3px solid #EC2D01";
         } else {
             phonevalidmsg.innerHTML = '';
+            return true;   
         }
       }
       
@@ -250,6 +257,7 @@ function validateDate() {
         dobInput.style.border="3px solid #EC2D01";
     } else {
         dobSpan.innerHTML = '';
+        return true;   
     }
   }
 
@@ -274,6 +282,7 @@ function validateDate() {
 
         } else {
             checkboxSpan.innerHTML = '';
+            return true;   
      }
      }
   
@@ -320,6 +329,8 @@ function validateCurrency() {
             curr.style.border="3px solid #EC2D01";
         } else {
             currmsg.innerHTML = '';
+            curr.style.border="3px solid green";
+            return true;   
         }
       }
 
@@ -344,13 +355,15 @@ function isDataEntered() {
     validateCurrency();
     validateGender();
     
+    if( validateEmail() && validateAlpha() && validateUrl() && isEmptyTextArea() && validateImage() && validatePassword() && validatePhoneNumber() && validateDate() && validateCheckbox() && validateCurrency()  && validateGender()){
+        window.alert("data submitted successfully");
+    }
+    else{
+        window.alert("Pleas enter data");
+    }
+    
 }
 
-// function dispMsg(){
-//     if(isDataEntered()){
-//         checkData();
-//     }
-// }
 
 
 
@@ -382,7 +395,7 @@ image.addEventListener('input',function(){
    });
 
 
-pass.addEventListener('input',function(){
+passwd.addEventListener('input',function(){
     validatePassword();
     
    
