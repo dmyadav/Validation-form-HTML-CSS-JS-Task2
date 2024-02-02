@@ -29,11 +29,11 @@ height: 750px;
   }
 #sbbutton{
     margin-left: 515px;
-    height: 25px;
+    height: 35px;
     width: 140px;
     border-radius: 2%;
-    margin-top: 100px;
-
+    margin-top: 0px;
+    
 }
 .inputwidth{
 
