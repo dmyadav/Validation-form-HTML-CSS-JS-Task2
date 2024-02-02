@@ -72,7 +72,7 @@ function isValidAlpha(alphatext) {
     var genderSpan = document.getElementById('gendervalidation');
   
     if (!maleRadio.checked && !femaleRadio.checked) {
-        genderSpan.innerHTML = "<p>Please select a gender.</p>";
+        genderSpan.innerHTML = "Please select a gender";
         genderSpan.style.color="red";
       
 
@@ -115,12 +115,12 @@ function isValidUrl(url) {
     var textareaSpan = document.getElementById('textareavalidation');
   
     if (!description) {
-        textareaSpan.innerHTML = "<p>Please enter something here</p>";
+        textareaSpan.innerHTML = "Please enter something here";
         textareaSpan.style.color="red";
         descriptionInput.style.border="3px solid #EC2D01";
 
     } else if (description.length < 10 || description.length > 100) {
-        textareaSpan.innerHTML = "<p>Description should be between 10 to 100 characters</p>";
+        textareaSpan.innerHTML = "Description should be between 10 to 100 characters";
         descriptionInput.style.border="3px solid #EC2D01";
     } else {
         textareaSpan.innerHTML = '';
@@ -144,7 +144,7 @@ function validateImage() {
      
        
     else if(!image.value.trim()){
-        imagevalidmsg.innerHTML = "please upload image";
+        imagevalidmsg.innerHTML = "Please upload image";
         imagevalidmsg.style.color="red";
       image.style.border="3px solid #EC2D01";
 
@@ -213,18 +213,18 @@ function validatePhoneNumber() {
         var phonevalidmsg = document.getElementById('phonevalidation');
       
         if (!phone) {
-            phonevalidmsg.innerHTML = "<p>Please enter your phone number</p>";
+            phonevalidmsg.innerHTML = "Please enter your phone number";
           phonevalidmsg.style.color="red";
           phoneInput.style.border="3px solid #EC2D01";
         } else if (phone.length > 10) { 
             
-            phonevalidmsg.innerHTML = "<p>Please enter only 10 digits</p>";
+            phonevalidmsg.innerHTML = "Please enter only 10 digits";
           phonevalidmsg.style.color="red";
           phoneInput.style.border="3px solid #EC2D01";
             phonevalidmsg = phone.slice(0, 10); // Truncate phone number to 10 digits
           phoneInput.value = phone; // Update input value
         } else if (phone.length < 10 || phone.charAt(0) < '6') {
-            phonevalidmsg.innerHTML = "<p>Phone number should  satrt from 6 and ahead</p>";
+            phonevalidmsg.innerHTML = "Phone number should  satrt from 6 and ahead";
           phonevalidmsg.style.color="red";
           phoneInput.style.border="3px solid #EC2D01";
         } else {
@@ -250,11 +250,11 @@ function validateDate() {
     var selectedDateObj = new Date(selectedDate);
   
     if (selectedDate === "") {
-        dobSpan.innerHTML = "<p>Please select a birth date.</p>";
+        dobSpan.innerHTML = "Please select a birth date";
         dobSpan.style.color="red";
         dobInput.style.border="3px solid #EC2D01";
     } else if (selectedDateObj < minDate || selectedDateObj > maxDate) {
-        dobSpan.innerHTML = "<p>Please select a birth date within the specified range.</p>";
+        dobSpan.innerHTML = "Please select a birth date within the specified range";
         dobSpan.style.color="red";
         dobInput.style.border="3px solid #EC2D01";
     } else {
@@ -276,11 +276,11 @@ function validateDate() {
      }
       
      if (checkedCount === 0) {
-         checkboxSpan.innerHTML = "<p>Please select at least one option</p>";
+         checkboxSpan.innerHTML = "Please select at least one option";
          checkboxSpan.style.color="red";
          
      }else if(checkedCount>2){
-         checkboxSpan.innerHTML = "<p>select only two checkboxes</p>";
+         checkboxSpan.innerHTML = "select only two checkboxes";
          checkboxSpan.style.color="red";
 
         } else {
@@ -319,15 +319,15 @@ function validateCurrency() {
         var maxCurrency = 1000000000000; 
       
         if (!currency) {
-            currmsg.innerHTML = "<p>Currency is required.</p>";
+            currmsg.innerHTML = "Currency is required";
             currmsg.style.color="red";
             curr.style.border="3px solid #EC2D01";
         } else if (!currencyRegex.test(currency)) {
-            currmsg.innerHTML = "<p>Currency should consist of only numbers.</p>";
+            currmsg.innerHTML = "Currency should consist of only numbers";
             currmsg.style.color="red";
             curr.style.border="3px solid #EC2D01";
         } else if (parseInt(currency) > maxCurrency) {
-            currmsg.innerHTML = "<p>Currency should not exceed limit of 1 trillion</p>";
+            currmsg.innerHTML = "Currency should not exceed limit of 1 trillion";
             currmsg.style.color="red";
             curr.style.border="3px solid #EC2D01";
         } else {
