@@ -8,12 +8,16 @@ function validateEmail() {
     if (isValidEmail(mailid.value.trim())) {
         emailvalidmsg.innerHTML = "valid"
         emailvalidmsg.style.color="green";
-        mailid.style.border="3px solid green"
+        mailid.style.border="3px solid green";
         return true;   
      
+   }
+    else if(mailid.value.trim() !== mailid.value){
+        emailvalidmsg.innerHTML="There is space before email";
+        emailvalidmsg.style.color="red";
+        mailid.style.border="3px solid #EC2D01";
+        }
 
-    }
-    
      else if(!mailid.value.trim()){
          emailvalidmsg.innerHTML="Please enter email";
          emailvalidmsg.style.color="red";
@@ -205,36 +209,101 @@ function isValidPassword(passwd) {
 const phone = document.getElementById("pnumber");
 var phonevalidmsg = document.getElementById('phonevalidation');
 
+// function validatePhoneNumber() {
+
+//         var phoneInput = document.getElementById('pnumber');
+//         var phone = phoneInput.value;
+//         var phonevalidmsg = document.getElementById('phonevalidation');
+      
+//         if (!phone) {
+//             phonevalidmsg.innerHTML = "Please enter your phone number";
+//           phonevalidmsg.style.color="red";
+//           phoneInput.style.border="3px solid #EC2D01";
+//         } else if (phone.length > 10) { 
+            
+//             phonevalidmsg.innerHTML = "Please enter only 10 digits";
+//           phonevalidmsg.style.color="red";
+//           phoneInput.style.border="3px solid #EC2D01";
+//             phonevalidmsg = phone.slice(0, 10); // Truncate phone number to 10 digits
+//           phoneInput.value = phone; // Update input value
+//         } else if (phone.length < 10 || phone.charAt(0) < '6') {
+//             phonevalidmsg.innerHTML = "Phone number should  satrt from 6 and ahead";
+//           phonevalidmsg.style.color="red";
+//           phoneInput.style.border="3px solid #EC2D01";
+//         } else {
+//             phonevalidmsg.innerHTML = '';
+//             phoneInput.style.border="3px solid green";
+//             return true;   
+//         }
+//       }
+      
+
+
+
+const pNumberInput = document.getElementById("pnumber");
+pNumberInput.addEventListener("input", validatePhoneNumber());
 
 function validatePhoneNumber() {
+    const phoneNumberInput = document.getElementById("pnumber");
+    const phoneValidmsg = document.getElementById("phonevalidation").value;
+    let phoneNumber = phoneNumberInput.value.trim();
+    
+    // Remove non-digit characters and keep only 10 digits
+    phoneNumber = phoneNumber.replace(/\D/g, '').slice(0, 10);
+    document.getElementById("pnumber").addEventListener("input", function() {
+        const phoneNumberInput = document.getElementById("pnumber");
+        let phoneNumber = phoneNumberInput.value.trim();
+    
+        // Remove non-digit characters and limit to 10 characters
+        phoneNumber = phoneNumber.replace(/\D/g, '').slice(0, 10);    
+    
+        // Update the input value
+        phoneNumberInput.value = phoneNumber;
+    });
+    const phoneRegex = /^[6789]\d{9}$/;
 
-        var phoneInput = document.getElementById('pnumber');
-        var phone = phoneInput.value;
-        var phonevalidmsg = document.getElementById('phonevalidation');
-      
-        if (!phone) {
-            phonevalidmsg.innerHTML = "Please enter your phone number";
-          phonevalidmsg.style.color="red";
-          phoneInput.style.border="3px solid #EC2D01";
-        } else if (phone.length > 10) { 
-            
-            phonevalidmsg.innerHTML = "Please enter only 10 digits";
-          phonevalidmsg.style.color="red";
-          phoneInput.style.border="3px solid #EC2D01";
-            phonevalidmsg = phone.slice(0, 10); // Truncate phone number to 10 digits
-          phoneInput.value = phone; // Update input value
-        } else if (phone.length < 10 || phone.charAt(0) < '6') {
-            phonevalidmsg.innerHTML = "Phone number should  satrt from 6 and ahead";
-          phonevalidmsg.style.color="red";
-          phoneInput.style.border="3px solid #EC2D01";
-        } else {
-            phonevalidmsg.innerHTML = '';
-            phoneInput.style.border="3px solid green";
-            return true;   
-        }
-      }
-      
+    // Update the input value
+    phoneNumberInput.value = phoneNumber;
 
+   
+
+    if (phoneNumber.length === 10 && phoneRegex.test(phoneNumber)) {
+        phoneValidmsg.innerText = "Phone number is valid";
+        phoneValidmsg.style.color = "green";
+        return true;
+    } else {
+        phoneValidmsg.innerText = "Invalid number";
+        phoneValidmsg.style.color = "red";
+        return false;
+    }
+        //phonevalidation
+    // if(!phoneRegex){
+    //     passvalidmsg.innerHTML= "Invalid number";
+    // }else{
+    //     passvalidmsg.innerHTML= "valid number";
+    // }
+
+    // if (phoneNumber.length === 10 && phoneRegex.test(phoneNumber)) {
+    //     phoneValidmsg.innerText = "Phone number is valid";
+    //     phoneValidmsg.style.color = "green";
+    //     return true;
+    // }
+    // if (phoneNumber.length === 0) {
+    //     phoneValidmsg.innerText = "  ";
+    //     phoneValidmsg.style.color = "red";
+    //     return false;
+    // } else {
+    //     phoneValidmsg.innerText = "Please enter a valid 10-digit phone number starting with 6, 7, 8, or 9";
+    //     phoneValidmsg.style.color = "red";
+    //     return false;
+    // }
+}
+
+
+// function formatPhoneNumber(phoneNumber) {
+
+//     return phoneNumber.slice(0, 10);
+// }
 
          
 var vdate = document.getElementById("date");
@@ -412,13 +481,12 @@ vdate.addEventListener('input',function(){
 });
 
 
-phone.addEventListener('input',function(){
-    validatePhoneNumber();  
+// phone.addEventListener('input',function(){
+//     validatePhoneNumber();  
    
-});
+// });
 
 curr.addEventListener('input',function(){
     validateCurrency();
    
 });
-
