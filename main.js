@@ -124,6 +124,7 @@ function isValidUrl(url) {
         descriptionInput.style.border="3px solid #EC2D01";
     } else {
         textareaSpan.innerHTML = '';
+        descriptionInput.style.border="3px solid green";
         return true;   
     }
   }
@@ -228,6 +229,7 @@ function validatePhoneNumber() {
           phoneInput.style.border="3px solid #EC2D01";
         } else {
             phonevalidmsg.innerHTML = '';
+            phoneInput.style.border="3px solid green";
             return true;   
         }
       }
@@ -257,6 +259,7 @@ function validateDate() {
         dobInput.style.border="3px solid #EC2D01";
     } else {
         dobSpan.innerHTML = '';
+        dobInput.style.border="3px solid green";
         return true;   
     }
   }
