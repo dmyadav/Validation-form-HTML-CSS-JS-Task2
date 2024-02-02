@@ -8,6 +8,8 @@ function validateEmail() {
     if (isValidEmail(mailid.value.trim())) {
         emailvalidmsg.innerHTML = "valid"
         emailvalidmsg.style.color="green";
+        mailid.style.border="3px solid green"
+        
         
      
 
@@ -16,11 +18,13 @@ function validateEmail() {
      else if(!mailid.value.trim()){
          emailvalidmsg.innerHTML="Please enter email";
          emailvalidmsg.style.color="red";
+         mailid.style.border="3px solid #EC2D01"
       }
 
     else {
         emailvalidmsg.innerHTML = "Invalid emaillid";
         emailvalidmsg.style.color="red";
+        mailid.style.border="3px solid #EC2D01"
     }
 
 }
@@ -40,15 +44,18 @@ function validateAlpha() {
     if (isValidAlpha(alphatext.value.trim())) {
         alphavalidmsg.innerHTML = "valid alphatext";
         alphavalidmsg.style.color="green";
+        alphatext.style.border="3px solid green"
     }
     else if(!alphatext.value.trim()) {
         alphavalidmsg.innerHTML = "Please enter alphatext";
         alphavalidmsg.style.color="red";
+        alphatext.style.border="3px solid #EC2D01"
         
     }
     else {
         alphavalidmsg.innerHTML = "Please enter valid alphatext";
         alphavalidmsg.style.color="red";
+        alphatext.style.border="3px solid #EC2D01"
         
     }
 }
@@ -67,6 +74,7 @@ function isValidAlpha(alphatext) {
     if (!maleRadio.checked && !femaleRadio.checked) {
         genderSpan.innerHTML = "<p>Please select a gender.</p>";
         genderSpan.style.color="red";
+      
 
     } else {
         genderSpan.innerHTML = '';
@@ -83,10 +91,12 @@ function validateUrl() {
     if (isValidUrl(url.value.trim())) {
         urlvalidmsg.innerHTML = "valid url";
         urlvalidmsg.style.color="green";
+        url.style.border="3px solid green"
     }
     else {
         urlvalidmsg.innerHTML = "Please enter valid url";
         urlvalidmsg.style.color="red";
+        url.style.border="3px solid #EC2D01"
     }
 }
 
@@ -105,9 +115,11 @@ function isValidUrl(url) {
     if (!description) {
         textareaSpan.innerHTML = "<p>Please enter something here</p>";
         textareaSpan.style.color="red";
+        descriptionInput.style.border="3px solid #EC2D01"
 
     } else if (description.length < 10 || description.length > 100) {
         textareaSpan.innerHTML = "<p>Description should be between 10 to 100 characters</p>";
+        descriptionInput.style.border="3px solid #EC2D01"
     } else {
         textareaSpan.innerHTML = '';
     }
@@ -122,17 +134,20 @@ function validateImage() {
     if (isValidImage(image.value.trim())) {
         imagevalidmsg.innerHTML = "image uploaded successfully";
         imagevalidmsg.style.color="green";
+        image.style.border="3px solid green"
     }
      
        
     else if(!image.value.trim()){
         imagevalidmsg.innerHTML = "please upload image";
         imagevalidmsg.style.color="red";
+      image.style.border="3px solid #EC2D01"
     }
 
     else {
         imagevalidmsg.innerHTML = "Invalid";
         imagevalidmsg.style.color="red";
+        image.style.border="3px solid #EC2D01"
     }
 }
 
@@ -151,11 +166,13 @@ function validatePassword() {
     if (isValidPassword(pass.value.trim())) {
         passvalidmsg.innerHTML = "valid";
         passvalidmsg.style.color="green";
+        pass.style.border="3px solid green";
     }
     
     else {
         passvalidmsg.innerHTML = "Invalid password";
         passvalidmsg.style.color="red";
+        pass.style.border="3px solid #EC2D01";
     }
 
 }
@@ -191,15 +208,18 @@ function validatePhoneNumber() {
         if (!phone) {
             phonevalidmsg.innerHTML = "<p>Please enter your phone number</p>";
           phonevalidmsg.style.color="red";
+          phoneInput.style.border="3px solid #EC2D01";
         } else if (phone.length > 10) { 
             
             phonevalidmsg.innerHTML = "<p>Please enter only 10 digits</p>";
           phonevalidmsg.style.color="red";
+          phoneInput.style.border="3px solid #EC2D01";
             phonevalidmsg = phone.slice(0, 10); // Truncate phone number to 10 digits
           phoneInput.value = phone; // Update input value
         } else if (phone.length < 10 || phone.charAt(0) < '6') {
             phonevalidmsg.innerHTML = "<p>Phone number should  satrt from 6 and ahead</p>";
           phonevalidmsg.style.color="red";
+          phoneInput.style.border="3px solid #EC2D01";
         } else {
             phonevalidmsg.innerHTML = '';
         }
@@ -223,9 +243,11 @@ function validateDate() {
     if (selectedDate === "") {
         dobSpan.innerHTML = "<p>Please select a birth date.</p>";
         dobSpan.style.color="red";
+        dobInput.style.border="3px solid #EC2D01";
     } else if (selectedDateObj < minDate || selectedDateObj > maxDate) {
         dobSpan.innerHTML = "<p>Please select a birth date within the specified range.</p>";
         dobSpan.style.color="red";
+        dobInput.style.border="3px solid #EC2D01";
     } else {
         dobSpan.innerHTML = '';
     }
@@ -245,9 +267,11 @@ function validateDate() {
      if (checkedCount === 0) {
          checkboxSpan.innerHTML = "<p>Please select at least one option</p>";
          checkboxSpan.style.color="red";
+         
      }else if(checkedCount>2){
          checkboxSpan.innerHTML = "<p>select only two checkboxes</p>";
          checkboxSpan.style.color="red";
+
         } else {
             checkboxSpan.innerHTML = '';
      }
@@ -271,10 +295,11 @@ function validateDate() {
 //     const currRegex=/^[0-9]$/;
 //     return currRegex.test(curr);
 //   }
+const curr = document.getElementById("currency");
+var currmsg = document.getElementById('currencyvalidation');
 
 function validateCurrency() {
-    var curr = document.getElementById("currency");
-    var currmsg = document.getElementById('currencyvalidation');
+   
     
       
         var currency = curr.value;
@@ -284,16 +309,28 @@ function validateCurrency() {
         if (!currency) {
             currmsg.innerHTML = "<p>Currency is required.</p>";
             currmsg.style.color="red";
+            curr.style.border="3px solid #EC2D01";
         } else if (!currencyRegex.test(currency)) {
             currmsg.innerHTML = "<p>Currency should consist of only numbers.</p>";
             currmsg.style.color="red";
+            curr.style.border="3px solid #EC2D01";
         } else if (parseInt(currency) > maxCurrency) {
             currmsg.innerHTML = "<p>Currency should not exceed limit of 1 trillion</p>";
             currmsg.style.color="red";
+            curr.style.border="3px solid #EC2D01";
         } else {
             currmsg.innerHTML = '';
         }
       }
+
+    //   function checkData(){
+    //     if(!curr.value.trim() || !mailid.value.trim() || !alphatext.value.trim()){
+    //         window.alert("please fill the data");
+    //     }
+    //     else{
+    //         window.alert("data entered successfully");
+    //     }
+    //   }
 function isDataEntered() {
     validateEmail();
     validateAlpha();
@@ -306,7 +343,15 @@ function isDataEntered() {
     validateCheckbox()
     validateCurrency();
     validateGender();
+    
 }
+
+// function dispMsg(){
+//     if(isDataEntered()){
+//         checkData();
+//     }
+// }
+
 
 
 mailid.addEventListener('input',function(){
