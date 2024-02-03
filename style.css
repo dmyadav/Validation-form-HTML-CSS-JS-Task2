@@ -12,13 +12,14 @@
    
     background-color: rgb(211,222,229);
     height: 650px;
-    
-
+    width: 1248px;
+             
 }
 #leftdiv{
 margin: 1%;
 margin-left: 40px;
 height: 750px;
+
 
 }
 
@@ -69,5 +70,8 @@ label{
   padding-top: 5px;
   padding-left: 5px;
   
+}
+span{
+font-weight: bold;    
 }
 

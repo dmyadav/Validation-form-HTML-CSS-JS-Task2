@@ -3,7 +3,7 @@ var emailvalidmsg = document.getElementById("emailvalidation");
 
 
 
-function validateEmail() {
+function validateEmail(event) {
 
     if (isValidEmail(mailid.value.trim())) {
         emailvalidmsg.innerHTML = "valid"
@@ -16,6 +16,7 @@ function validateEmail() {
         emailvalidmsg.innerHTML = "There is space before email";
         emailvalidmsg.style.color = "red";
         mailid.style.border = "3px solid #EC2D01";
+           
     }
 
     else if (!mailid.value.trim()) {
@@ -65,7 +66,7 @@ function validateAlpha() {
 }
 
 function isValidAlpha(alphatext) {
-    const alphaRegex = /^[a-zA-Z]+$/;
+    const alphaRegex = /^[A-Z][a-zA-Z]+$/;
     return alphaRegex.test(alphatext);
 }
 
