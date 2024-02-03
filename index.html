@@ -44,13 +44,13 @@
         
                 <div>
                     <label for="">Textarea Field Validation</label><br>
-                    <textarea name="" id="tarea" cols="10" rows="2" placeholder="Textarea" class="inputwidth"></textarea>
+                    <textarea name="" id="tarea" cols="10" rows="2" placeholder="Textarea" class="inputwidth" oninput="isEmptyTextArea()"></textarea>
                     <br>
                     <span id="textareavalidation"></span>
                 </div>
      <br>
                 <div> <label for="">Image Field Validation</label><br>
-                    <input type="file" name="" id="imgfile" class="inputwidth">
+                    <input type="file" name="" id="imgfile" class="inputwidth" oninput="validateImage()">
                     <br>
                     <span id="imgvalidation"></span>
                 </div>
@@ -58,10 +58,10 @@
             <div id="rightdiv">
                 <div>
                     <label for="">Password Text Field Validation</label><br>
-                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass" maxlength="16" >
+                    <input type="password" name="" class="inpwidth" placeholder="Enter password" class="inputwidth" id="pass" maxlength="16" oninput="validatePassword()">
                     <br> <span id="passvalidation"></span>
                     <button  >
-                        <img id="showbtn" src="./images/icons8-eye-32.png" alt="" onclick="dispPass()" style="height: 20px; width: 20px;">
+                        <img id="showbtn" src="./images/icons8-eye-32.png" alt="" onclick="dispPass()" style="height: 20px; width: 20px;" oninput="validateImage()">
                     </button>
 
                   
@@ -77,7 +77,7 @@
                         <option value="">+95</option>
                         <option value="">+96</option>
                     </select>
-                    <input type="text" maxlength="10" name="" id="pnumber" placeholder="Enter Phone Number" class="inputwidth">
+                    <input type="text" maxlength="10" name="" id="pnumber" placeholder="Enter Phone Number" class="inputwidth" oninput="validatePhoneNumber()">
             
                     <br>
                     <span id="phonevalidation"></span>
@@ -85,23 +85,23 @@
      
                 <div>
                     <label for="">Date Picker(Birth Date)</label>
-                    <br> <input type="date" name="" id="date" class="inputwidth" class="inpwidth" max="03-02-2024" min="01-31-1924">
+                    <br> <input type="date" name="" id="date" class="inputwidth" class="inpwidth" max="02-03-2024" min="01-31-1924" oninput="validateDate()">
                     <br>
                     <span id="datevalidation"></span>
                 </div>
                 <br>
                 <div><label for="">Currency Field Validation</label>
-                    <br><input type="number" name="" class="inpwidth" placeholder="Enter currency" class="inputwidth" id="currency">
+                    <br><input type="text" maxlength="13" name="" class="inpwidth" placeholder="Enter currency" class="inputwidth" id="currency" oninput="validateCurrency()">
                     
                     <br>
                     <span id="currencyvalidation"></span>
                 </div> 
                 <div>
                     <label for="">Checkbox Field Validation</label><br>
-                    <input type="checkbox" name="domain" id=""> <span>MEAN</span>
-                    <br><input type="checkbox" name="domain" id=""> <span>Blockchain</span>
-                    <br> <input type="checkbox" name="domain" id=""><span> React</span>
-                    <br> <input type="checkbox" name="domain" id=""><span> BA</span>
+                    <input type="checkbox" name="domain" id="" oninput="validateCheckbox()"> <span>MEAN</span>
+                    <br><input type="checkbox" name="domain" id="" oninput="validateCheckbox()"> <span>Blockchain</span>
+                    <br> <input type="checkbox" name="domain" id="" oninput="validateCheckbox()"><span> React</span>
+                    <br> <input type="checkbox" name="domain" id="" oninput="validateCheckbox()"><span> BA</span>
                     <br>
                 <span id="checkboxvalidation" ><b>Note:Please select any one or two checkboxes</b></span>
                 </div><br>
